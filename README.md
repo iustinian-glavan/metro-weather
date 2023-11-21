@@ -5,22 +5,6 @@ It also includes a simple web component as an example.
 
 _Ensure that you have obtained an API key from OpenWeatherMap before using this widget. You can sign up and get your API key from OpenWeatherMap._
 
-## Usage
-
-### Installation
-
-To use this weather widget in your project, follow these steps:
-
-1. Install the package:
-   ```bash
-   npm install weather-widget
-   ```
-2. Import the WeatherWidget component in your project:
-
-```
-import { WeatherWidget } from 'weather-widget';
-```
-
 ### Props
 
 The WeatherWidget component accepts the following props:
@@ -33,6 +17,9 @@ countryCode (string, optional): Country code (ISO3166).
 units (standard | metric | imperial, optional): Units of measurement (default: standard).
 lang (string, optional): Language (default: en).
 ```
+## Usage
+
+Import the WeatherWidget component in your project
 
 ```
 import React from 'react';
