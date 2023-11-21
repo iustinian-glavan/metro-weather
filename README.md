@@ -3,7 +3,7 @@
 A simple weather widget built using TypeScript and React that fetches weather data from the OpenWeatherMap API.
 It also includes a simple web component as an example.
 
-*Ensure that you have obtained an API key from OpenWeatherMap before using this widget. You can sign up and get your API key from OpenWeatherMap.*
+_Ensure that you have obtained an API key from OpenWeatherMap before using this widget. You can sign up and get your API key from OpenWeatherMap._
 
 ## Usage
 
@@ -17,21 +17,25 @@ To use this weather widget in your project, follow these steps:
    ```
 2. Import the WeatherWidget component in your project:
 
-````bash
+```
 import { WeatherWidget } from 'weather-widget';
+```
 
 ### Props
+
 The WeatherWidget component accepts the following props:
 
+```
 apiKey (string): OpenWeatherMap API key.
 cityName (string): Name of the city (widget will use the first result in the list).
 stateCode (string, optional): State code (for US).
 countryCode (string, optional): Country code (ISO3166).
 units (standard | metric | imperial, optional): Units of measurement (default: standard).
 lang (string, optional): Language (default: en).
+```
 
- ```bash
- import React from 'react';
+```
+import React from 'react';
 import { WeatherWidget } from 'weather-widget';
 
 const App = () => {
@@ -49,6 +53,4 @@ return (
 };
 
 export default App;
-````
-
-
+```
