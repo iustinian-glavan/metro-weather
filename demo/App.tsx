@@ -4,6 +4,10 @@ import { WeatherWidget } from "../src";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <WeatherWidget apiKey={"your-api-key"} cityName={"cluj-napoca"} units="imperial"/>
+    <WeatherWidget
+      apiKey={"your-api-key"}
+      cityName={"cluj-napoca"}
+      units="imperial"
+    />
   </React.StrictMode>
 );

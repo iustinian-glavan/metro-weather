@@ -1,6 +1,6 @@
 import React from "react";
 import { setup, styled } from "goober";
-import '../web-components/weather-icon';
+import "../web-components/weather-icon";
 
 interface Props {
   day: string;
@@ -16,7 +16,7 @@ const Forecast = styled("span")`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FFFFFF50;
+  background-color: #ffffff50;
   border-radius: 5px;
   padding: 10px 2px;
   &:nth-child(n + 2) {
@@ -39,7 +39,13 @@ const Forecast = styled("span")`
   }
 `;
 
-const WeatherForecast = ({ day, hour, icon, minTemp, maxTemp }: Props) => {
+const WeatherForecast = ({
+  day,
+  hour,
+  icon,
+  minTemp,
+  maxTemp,
+}: Props): React.ReactElement => {
   return (
     <Forecast>
       <div className="forecast">

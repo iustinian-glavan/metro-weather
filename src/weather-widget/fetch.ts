@@ -1,4 +1,4 @@
-import { Props } from ".";
+import { WeatherWidgetProps } from ".";
 import {
   currentWeatherDataToCurrentWeatherEntity,
   forecastDataToForecastEntity,
@@ -52,7 +52,7 @@ export const fetchData = ({
   apiKey,
   units,
   lang,
-}: Props) => {
+}: WeatherWidgetProps) => {
   const q = `${cityName}${stateCode ? "," + stateCode : ""}${
     countryCode ? "," + countryCode : ""
   }`;

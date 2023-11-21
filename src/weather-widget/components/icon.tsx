@@ -1,9 +1,11 @@
+import React from "react";
+
 interface Props {
   code: string;
   large?: boolean;
 }
 
-const Icon = ({ code, large = false }: Props) => {
+const Icon = ({ code, large = false }: Props): React.ReactElement => {
   let imageUrl = "https://openweathermap.org/img/wn/" + code;
   if (large) {
     imageUrl += "@2x";

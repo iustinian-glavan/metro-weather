@@ -10,7 +10,7 @@ setup(React.createElement);
 
 const Stat = styled("div")`
   width: calc(50% - 10px);
-  background-color: #FFFFFF50;
+  background-color: #ffffff50;
   border-radius: 5px;
   padding: 10px;
   margin: 0 5px;
@@ -22,7 +22,7 @@ const Label = styled("span")`
   margin-right: 5px;
 `;
 
-const WeatherValue = ({ label, value }: Props) => {
+const WeatherValue = ({ label, value }: Props): React.ReactElement => {
   return (
     <Stat>
       <Label>{label}</Label>

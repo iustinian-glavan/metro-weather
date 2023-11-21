@@ -20,7 +20,10 @@ interface Props {
   cityName: string;
   weatherDetail: string;
 }
-const WidgetHeader = ({ cityName, weatherDetail }: Props) => {
+const WidgetHeader = ({
+  cityName,
+  weatherDetail,
+}: Props): React.ReactElement => {
   return (
     <HeaderDetails>
       <div className="city">{cityName}</div>

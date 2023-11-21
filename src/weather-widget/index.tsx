@@ -52,7 +52,7 @@ const Forecasts = styled("div")`
   }
 `;
 
-export interface Props {
+export interface WeatherWidgetProps {
   /**
    * openweathermap api key
    */
@@ -79,7 +79,7 @@ export interface Props {
   lang?: string;
 }
 
-const WeatherWidget = (props: Props): React.ReactElement => {
+const WeatherWidget = (props: WeatherWidgetProps): React.ReactElement => {
   const [error, setError] = useState<Error | undefined>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [weatherData, setWeatherData] = useState<WeatherDataEntity | undefined>(
@@ -92,6 +92,7 @@ const WeatherWidget = (props: Props): React.ReactElement => {
         setWeatherData(weatherData);
       })
       .catch((err) => {
+        setWeatherData(undefined);
         setError(err);
       })
       .finally(() => {
@@ -99,49 +100,43 @@ const WeatherWidget = (props: Props): React.ReactElement => {
       });
   }, [props]);
 
-  console.log(weatherData, props);
-
   return (
     <Container>
-      {isLoading ? (
-        <Loader />
-      ) : error ? (
-        <SimpleError message={error.message} />
-      ) : (
-        weatherData && (
-          <>
-            <WidgetHeader
-              cityName={weatherData.currentWeather.city}
-              weatherDetail={weatherData.currentWeather.description}
-            />
-            <CurrentWeather
-              currentTemp={weatherData.currentWeather.currentTemp}
-              minTemp={weatherData.currentWeather.minTemp}
-              maxTemp={weatherData.currentWeather.maxTemp}
-              icon={weatherData.currentWeather.icon}
-            />
-            <WeatherStats>
-              {weatherData.currentWeather.weatherStats.map(
-                (stat: WeatherStatValue) => (
-                  <WeatherValue {...stat} key={stat.label} />
-                )
-              )}
-            </WeatherStats>
-            <Forecasts>
-              <div className="forecasts">
-                {weatherData.forecasts.map((forecast: ForecastEntity) => (
-                  <WeatherForecast
-                    {...forecast}
-                    key={forecast.day + forecast.hour}
-                  />
-                ))}
-              </div>
-            </Forecasts>
-          </>
-        )
+      {isLoading && <Loader />}
+      {error && <SimpleError message={error.message} />}
+      {weatherData && (
+        <>
+          <WidgetHeader
+            cityName={weatherData.currentWeather.city}
+            weatherDetail={weatherData.currentWeather.description}
+          />
+          <CurrentWeather
+            currentTemp={weatherData.currentWeather.currentTemp}
+            minTemp={weatherData.currentWeather.minTemp}
+            maxTemp={weatherData.currentWeather.maxTemp}
+            icon={weatherData.currentWeather.icon}
+          />
+          <WeatherStats>
+            {weatherData.currentWeather.weatherStats.map(
+              (stat: WeatherStatValue) => (
+                <WeatherValue {...stat} key={stat.label} />
+              )
+            )}
+          </WeatherStats>
+          <Forecasts>
+            <div className="forecasts">
+              {weatherData.forecasts.map((forecast: ForecastEntity) => (
+                <WeatherForecast
+                  {...forecast}
+                  key={forecast.day + forecast.hour}
+                />
+              ))}
+            </div>
+          </Forecasts>
+        </>
       )}
     </Container>
   );
 };
 
-export { WeatherWidget, type Props as WeatherWidgetProps };
+export { WeatherWidget };

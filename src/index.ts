@@ -9,4 +9,5 @@ declare global {
     }
   }
 }
+
 export * from "./weather-widget";
